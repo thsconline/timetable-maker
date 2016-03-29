@@ -1,0 +1,1435 @@
+<html>
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
+<title>*</title>
+
+<style>
+
+
+* 
+{
+font-family:Euphemia, Cornwall, Arial,  "Times New Romans", serif;
+z-index:1
+}
+p, table *, ul *, label, span:not(#ln), h3 a
+{
+font-size: 14px;
+}
+h3 a
+{
+font-weight:none;
+}
+
+h3
+{
+font-size:16px;
+}
+h3 a
+{
+font-size:12px;
+}
+
+table.navy tr.major-interchange td
+{	
+background-color:#F2F2F2;
+color:#002060;
+}
+table.black tr.major-interchange td
+{	
+background-color:#F2F2F2;
+color:#000000;
+}
+table.grey tr.major-interchange td
+{	
+background-color:#F2F2F2;
+color:#444444;
+}
+
+table.navy tr.absolute td
+{	
+background-color:#555555;
+color:#FFFFFF;
+}
+table.black tr.absolute td
+{	
+background-color:#000000;
+color:#FFFFFF;
+}
+table.grey tr.absolute td
+{	
+background-color:#555555;
+color:#FFFFFF;
+}
+
+
+
+
+
+tr.major-interchange td:nth-of-type(1)
+{
+   background-color:#F79646;
+color:#FFFFFF;
+}
+tr.absolute td:nth-of-type(1)
+{
+   background-color:#F79646;
+color:#FFFFFF;
+}
+
+
+#ln, #color-preview
+{
+   background-color:#F79646;
+color:#FFFFFF;
+}	
+#color-preview2
+{
+   background-color:#555555;
+color:#FFFFFF;
+}
+#lm
+{
+color:#F79646;
+}
+tr.major-interchange td:nth-of-type(2), tr.minor-interchange td:nth-of-type(2), tr.absolute td:nth-of-type(2)
+{
+   font-weight:bold;
+}
+
+table.navy tr.minor-interchange
+{
+color:#002060;
+}
+table.grey tr.minor-interchange
+{
+color:#555555;
+}
+table.black tr.minor-interchange
+{
+color:#000000;
+}
+tr.connection td:nth-of-type(2)
+{
+   font-style:italic;
+   font-weight:none;
+   font-color:black;
+}
+table
+ {
+ border-collapse:collapse;
+ }
+ table,th, td
+ {
+ border: 1px solid;
+border-color: #BFBFBF #BFBFBF #BFBFBF #BFBFBF;
+ }
+
+ span#ln,  span#indent
+ {
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+border-radius: 10px;
+border: 1px solid;
+border-color: #AAAAAA;
+padding:2px;
+
+}
+
+
+
+#indent
+{
+border-color: #FFFFFF;
+}
+
+
+input[type=submit] {
+
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #999999), color-stop(1, #555555));
+	background:-moz-linear-gradient(top, #999999 5%, #555555 100%);
+	background:-webkit-linear-gradient(top, #999999 5%, #555555 100%);
+	background:-o-linear-gradient(top, #999999 5%, #555555 100%);
+	background:-ms-linear-gradient(top, #999999 5%, #555555 100%);
+	background:linear-gradient(to bottom, #999999 5%, #555555 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#555555',GradientType=0);
+/*	background-color:#555555;*/
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+/*	display:inline-block;*/
+border:1px solid;
+border-color:#555555 #555555 #555555 #555555;
+	cursor:pointer;
+	color:#EEFFFF;
+
+
+	text-decoration:none;
+}
+input[type=submit]:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #8f8f8f), color-stop(1, #111111));
+	background:-moz-linear-gradient(top, #8f8f8f 5%, #111111 100%);
+	background:-webkit-linear-gradient(top, #8f8f8f 5%, #111111 100%);
+	background:-o-linear-gradient(top, #8f8f8f 5%, #111111 100%);
+	background:-ms-linear-gradient(top, #8f8f8f 5%, #111111 100%);
+	background:linear-gradient(to bottom, #8f8f8f 5%, #111111 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f8f8f', endColorstr='#111111',GradientType=0);
+	background-color:#111111;
+}
+select.curved, input
+{
+border:transparent;
+border-radius:5px;
+background-color:#FAFAFA;
+}
+select
+{
+border:transparent;
+margin-right:5px;
+background-color:#FAFAFA;
+
+
+}
+
+
+</style>
+<script>	
+var ge
+
+
+
+
+function borderrad()
+{
+r=document.getElementById("radi").value
+myElementStyle = document.getElementById('ln').style; 
+myElementStyle.borderRadius = r+'px'; // standard 
+try
+{
+r=document.getElementById("radi").value
+myElementStylex = document.getElementById('indent').style; 
+myElementStylex.borderRadius = r+'px'; // standard 
+}
+catch (err){}
+
+}
+
+
+
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+function colorupdate()
+{
+try
+{
+if (typeof ge=="undefined"){ge=""}
+document.getElementById("input-line").value=ge;
+}
+catch (err){}
+theme=document.getElementById("themex").value
+document.getElementById("times").className = theme;
+
+setTimeout(function(){borderrad()})
+
+
+
+a2 = document.getElementById("red").value
+
+b2 = document.getElementById("green").value
+
+c2 = document.getElementById("blue").value
+a=a2.toUpperCase()
+b=b2.toUpperCase()
+c=c2.toUpperCase()
+e="#"+a+b+c
+
+
+a4 = document.getElementById("red2").value
+b4 = document.getElementById("green2").value
+c4 = document.getElementById("blue2").value
+a3=a4.toUpperCase()
+b3=b4.toUpperCase()
+c3=c4.toUpperCase()
+e2="#"+a3+b3+c3
+
+
+filld=document.getElementById("fill-colour").value
+titled=document.getElementById("title-colour").value
+
+switch (filld)
+{
+case "colour1":
+fill=e;
+break;
+case "colour2":
+fill=e2;
+break;
+case "white":
+fill="#FFFFFF"
+break;
+default:
+fill=e;
+break;
+}
+
+switch (titled)
+{
+case "colour1":
+fillf=e;
+
+break;
+case "colour2":
+fillf=e2;
+break;
+
+case "lower333":
+fillf= fill.replace(/1/g, "0");
+fillf= fillf.replace(/2/g, "0");
+fillf= fillf.replace(/3/g, "0");
+fillf= fillf.replace(/4/g, "1");
+fillf= fillf.replace(/5/g, "2");
+fillf= fillf.replace(/6/g, "3");
+fillf= fillf.replace(/7/g, "4");
+fillf= fillf.replace(/8/g, "5");
+fillf= fillf.replace(/9/g, "6");
+fillf= fillf.replace(/A/g, "7");
+fillf= fillf.replace(/B/g, "8");
+fillf= fillf.replace(/C/g, "9");
+fillf= fillf.replace(/D/g, "A");
+fillf= fillf.replace(/E/g, "B");
+fillf= fillf.replace(/F/g, "C");
+break;
+case "lower555":
+fillf= fill.replace(/1/g, "0");
+fillf= fillf.replace(/2/g, "0");
+fillf= fillf.replace(/3/g, "0");
+fillf= fillf.replace(/4/g, "0");
+fillf= fillf.replace(/5/g, "0");
+fillf= fillf.replace(/6/g, "1");
+fillf= fillf.replace(/7/g, "2");
+fillf= fillf.replace(/8/g, "3");
+fillf= fillf.replace(/9/g, "4");
+fillf= fillf.replace(/A/g, "5");
+fillf= fillf.replace(/B/g, "6");
+fillf= fillf.replace(/C/g, "7");
+fillf= fillf.replace(/D/g, "8");
+fillf= fillf.replace(/E/g, "9");
+fillf= fillf.replace(/F/g, "A");
+break;
+case "lower777":
+fillf= fill.replace(/1/g, "0");
+fillf= fillf.replace(/2/g, "0");
+fillf= fillf.replace(/3/g, "0");
+fillf= fillf.replace(/4/g, "0");
+fillf= fillf.replace(/5/g, "0");
+fillf= fillf.replace(/6/g, "0");
+fillf= fillf.replace(/7/g, "0");
+fillf= fillf.replace(/8/g, "1");
+fillf= fillf.replace(/9/g, "2");
+fillf= fillf.replace(/A/g, "3");
+fillf= fillf.replace(/B/g, "4");
+fillf= fillf.replace(/C/g, "5");
+fillf= fillf.replace(/D/g, "6");
+fillf= fillf.replace(/E/g, "7");
+fillf= fillf.replace(/F/g, "8");
+break;
+case "lower999":
+fillf= fill.replace(/1/g, "0");
+fillf= fillf.replace(/2/g, "0");
+fillf= fillf.replace(/3/g, "0");
+fillf= fillf.replace(/4/g, "0");
+fillf= fillf.replace(/5/g, "0");
+fillf= fillf.replace(/6/g, "0");
+fillf= fillf.replace(/7/g, "0");
+fillf= fillf.replace(/8/g, "0");
+fillf= fillf.replace(/9/g, "0");
+fillf= fillf.replace(/A/g, "1");
+fillf= fillf.replace(/B/g, "2");
+fillf= fillf.replace(/C/g, "3");
+fillf= fillf.replace(/D/g, "4");
+fillf= fillf.replace(/E/g, "5");
+fillf= fillf.replace(/F/g, "6");
+break;
+case "lowergradient":
+fillf= fill.replace(/1/g, "0");
+fillf= fillf.replace(/2/g, "1");
+fillf= fillf.replace(/3/g, "1");
+fillf= fillf.replace(/4/g, "2");
+fillf= fillf.replace(/5/g, "2");
+fillf= fillf.replace(/6/g, "3");
+fillf= fillf.replace(/7/g, "3");
+fillf= fillf.replace(/8/g, "4");
+fillf= fillf.replace(/9/g, "4");
+fillf= fillf.replace(/A/g, "5");
+fillf= fillf.replace(/B/g, "5");
+fillf= fillf.replace(/C/g, "6");
+fillf= fillf.replace(/D/g, "6");
+fillf= fillf.replace(/E/g, "7");
+fillf= fillf.replace(/F/g, "7");
+break;
+case "centralgradient":
+fillf= fill.replace(/7/g, "8");
+fillf= fillf.replace(/9/g, "8");
+
+fillf= fillf.replace(/5/g, "7");
+fillf= fillf.replace(/6/g, "7");
+fillf= fillf.replace(/A/g, "9");
+fillf= fillf.replace(/B/g, "9");
+
+fillf= fillf.replace(/1/g, "5")
+fillf= fillf.replace(/2/g, "5")
+fillf= fillf.replace(/3/g, "6")
+fillf= fillf.replace(/4/g, "6")
+fillf= fillf.replace(/C/g, "A")
+fillf= fillf.replace(/D/g, "A")
+fillf= fillf.replace(/E/g, "B")
+fillf= fillf.replace(/F/g, "B")
+fillf= fillf.replace(/0/g, "4");
+
+break;
+case "highergradient":
+fillf= fill.replace(/D/g, "E");
+fillf= fillf.replace(/C/g, "D");
+fillf= fillf.replace(/B/g, "D");
+fillf= fillf.replace(/A/g, "C");
+fillf= fillf.replace(/9/g, "C");
+fillf= fillf.replace(/8/g, "B");
+
+
+fillf= fillf.replace(/1/g, "8");
+fillf= fillf.replace(/2/g, "8");
+fillf= fillf.replace(/3/g, "9");
+fillf= fillf.replace(/4/g, "9");
+fillf= fillf.replace(/5/g, "A");
+fillf= fillf.replace(/6/g, "A");
+fillf= fillf.replace(/7/g, "B");
+fillf= fillf.replace(/0/g, "7");
+break;
+
+
+
+
+case "higher333":
+fillf= fill.replace(/E/g, "F");
+fillf= fillf.replace(/D/g, "F");
+fillf= fillf.replace(/C/g, "F");
+fillf= fillf.replace(/B/g, "E");
+fillf= fillf.replace(/A/g, "D");
+fillf= fillf.replace(/9/g, "C");
+fillf= fillf.replace(/8/g, "B");
+fillf= fillf.replace(/7/g, "A");
+fillf= fillf.replace(/6/g, "9");
+fillf= fillf.replace(/5/g, "8");
+fillf= fillf.replace(/4/g, "7");
+fillf= fillf.replace(/3/g, "6");
+fillf= fillf.replace(/2/g, "5");
+fillf= fillf.replace(/1/g, "4");
+fillf= fillf.replace(/0/g, "3");
+break;
+case "higher555":
+fillf= fill.replace(/E/g, "F");
+fillf= fillf.replace(/D/g, "F");
+fillf= fillf.replace(/C/g, "F");
+fillf= fillf.replace(/B/g, "F");
+fillf= fillf.replace(/A/g, "F");
+fillf= fillf.replace(/9/g, "E");
+fillf= fillf.replace(/8/g, "D");
+fillf= fillf.replace(/7/g, "C");
+fillf= fillf.replace(/6/g, "B");
+fillf= fillf.replace(/5/g, "A");
+fillf= fillf.replace(/4/g, "9");
+fillf= fillf.replace(/3/g, "8");
+fillf= fillf.replace(/2/g, "7");
+fillf= fillf.replace(/1/g, "6");
+fillf= fillf.replace(/0/g, "5");
+break;
+case "none":
+fillf="#000000";
+break;
+default:
+fillf=fill;
+break;
+}
+
+//values determined
+
+try
+{
+if((hexToRgb(e).g + hexToRgb(e).r)/2 > 199 || (hexToRgb(e).g + hexToRgb(e).b)/2 > 207 || hexToRgb(e).g> 207)
+{
+
+document.getElementById("color-preview").style.color="#000000"
+}
+else
+{
+
+document.getElementById("color-preview").style.color="#FFFFFF"
+}
+
+
+
+}
+catch (err){}
+
+try
+{
+if((hexToRgb(fill).g + hexToRgb(fill).r)/2 > 199 || (hexToRgb(fill).g + hexToRgb(fill).b)/2 > 207 || hexToRgb(fill).g> 207)
+{
+document.getElementById("ln").style.color="#000000"
+
+
+}
+else
+{
+document.getElementById("ln").style.color="#FFFFFF"
+}
+}
+catch (err){}
+
+
+
+try
+{
+if((hexToRgb(e2).g + hexToRgb(e2).r)/2 > 199 || (hexToRgb(e2).g + hexToRgb(e2).b)/2 > 207 || hexToRgb(e2).g> 207)
+{
+document.getElementById("color-preview2").style.color="#000000"
+}
+else
+{
+document.getElementById("color-preview2").style.color="#FFFFFF"
+}
+}
+catch (err){}
+try
+{
+if((hexToRgb(fillf).g + hexToRgb(fillf).r)/2 > 199 || (hexToRgb(fillf).g + hexToRgb(fillf).b)/2 > 207 || hexToRgb(fillf).g> 207)
+{
+if (titled=="default")
+{
+fillf= fill.replace(/1/g, "0")
+fillf= fillf.replace(/2/g, "1")
+fillf= fillf.replace(/3/g, "1")
+fillf= fillf.replace(/4/g, "2")
+fillf= fillf.replace(/5/g, "2")
+fillf= fillf.replace(/6/g, "3")
+fillf= fillf.replace(/7/g, "3")
+fillf= fillf.replace(/8/g, "4")
+fillf= fillf.replace(/9/g, "4")
+fillf= fillf.replace(/A/g, "5")
+fillf= fillf.replace(/B/g, "5")
+fillf= fillf.replace(/C/g, "6")
+fillf= fillf.replace(/D/g, "6")
+fillf= fillf.replace(/E/g, "7")
+fillf= fillf.replace(/F/g, "7")
+
+}
+
+}
+else
+{
+}
+
+}catch(err){}
+
+if (titled=="default")
+{fillg="#000000"}
+else
+{
+fillg=fillf
+}
+
+try
+{
+document.getElementById("lmx").style.color=fillg
+}
+catch (err){}
+try
+{
+if (filld=="none")
+{
+document.getElementById("ln").style.backgroundColor="#FFFFFF";
+document.getElementById("ln").style.color="#000000"}
+else
+{
+document.getElementById("ln").style.backgroundColor=fill;
+}
+document.getElementById("lm").style.color=fillf
+
+document.getElementById("color-preview").style.backgroundColor=e
+document.getElementById("color-preview2").style.backgroundColor=e2
+document.getElementById("ln").style.backgroundColor=fill
+
+document.getElementById("color-preview").value=e
+document.getElementById("color-preview2").value=e2
+
+}
+catch (err)
+{}
+  
+
+for (var j = 0; j < document.getElementById("times").rows.length; j++) {
+
+
+var cls=document.getElementById("times").rows[j].className
+
+ if(cls.search("major-interchange")=="-1" && cls.search("absolute")=="-1"){}
+else
+{
+document.getElementById("times").rows[j].cells[0].style.backgroundColor=e}
+}
+
+
+
+
+}
+
+
+
+function changeheading()
+{
+
+a = document.getElementById("line-letter").value
+b = document.getElementById("line-number").value
+b=escape(b)
+b=b.replace(/%3C/g, "&lt;")
+b=b.replace(/%3E/g, "&gt;")
+b=unescape(b)
+cx = document.getElementById("input-line").value
+c=escape(cx)
+c=c.replace(/%3C/g, "&lt;")
+c=c.replace(/%5C%3E%3E/g, "&raquo;")
+c=c.replace(/%3E/g, "&gt;")
+if (a=="none" || b=="")
+{
+c=c.replace(/%5Cn/g, "<br>")
+
+cq=unescape(c)
+cq=cq.replace("&raquo;", "")
+cq=cq.replace(/ <br> /g, " // ")
+cq=cq.replace(/<br> /g, " // ")
+cq=cq.replace(/ <br>/g, " // ")
+titlex=cq.replace(/<br>/, " // ")
+
+}
+else
+{
+c=c.replace(/%5Cn/g, "//")
+cq=unescape(c)
+cq=cq.replace("&raquo;", "")
+cq=cq.replace(/ <br> /g, " // ")
+cq=cq.replace(/<br> /g, " // ")
+cq=cq.replace(/ <br>/g, " // ")
+c=cq.replace("<br>", " // ")
+titlex=a+b+" - "+cq.replace("<br>", " // ")
+if (c==""){titlex=a+b}
+
+
+
+}
+c=unescape(c)
+
+
+if (a =="none" || b=="")
+{
+document.getElementById("output-line").innerHTML="<span id=\"ln\" style=\"display:none;\"><\/span><span id=\"lm\" style=\"font-size:24px;\">"+c+"<\/span>"
+}
+else
+{
+
+document.getElementById("output-line").innerHTML="<span id=\"ln\" style=\"font-size:24px;\">"+a+b+"<\/span> <span id=\"lm\" style=\"font-size:24px;\">"+c+"<\/span>"
+}
+ge=cx;
+if (titlex=="")
+{
+document.title="*"
+}
+else
+{
+document.title=titlex;
+}
+setTimeout(function(){colorupdate()})
+}
+
+function removestat2()
+{
+ad=document.getElementById("editor").value
+
+
+y=confirm("Remove selected station?")
+
+if (y==true)
+{
+try	
+{
+var table=document.getElementById("times");
+if (typeof count == "undefined"){count=document.getElementById("times").getAttribute("data-count")}
+if (count <= 0){document.getElementById("times").setAttribute("data-count", count)}
+else
+{
+ad=document.getElementById("editor").value
+ad= -(1-ad)+1
+
+table.deleteRow(ad)
+count=-(1-count)
+document.getElementById("times").setAttribute("data-count", count)
+}
+}
+catch (err){}
+
+try{document.getElementById("statcount").innerHTML=count}catch (err){document.getElementById("statcount").innerHTML=0}
+setTimeout(function(){colorupdate()})
+}
+}
+function removestat()
+{
+y=confirm("Remove last added station?")
+if (y==true)
+{
+var table=document.getElementById("times");
+if (typeof count == "undefined"){count=document.getElementById("times").getAttribute("data-count")}
+if (count <= 0){document.getElementById("times").setAttribute("data-count", count)}
+else
+{
+
+table.deleteRow(count-1)
+count=-(1-count) 
+document.getElementById("times").setAttribute("data-count", count)
+}
+
+try{document.getElementById("statcount").innerHTML=count}catch (err){document.getElementById("statcount").innerHTML=0}
+}
+setTimeout(function(){colorupdate()})
+
+}
+var spaced
+function addstat()
+{
+if (typeof count == "undefined"){count=document.getElementById("times").getAttribute("data-count")}
+
+if (typeof spaced == "undefined"){spaced="false"}
+g = document.getElementById("input-station").value
+c = document.getElementById("type").value
+
+
+
+if  (g==""|| c=="spacer"){
+if (spaced!="true" && count>0)
+{
+var table=document.getElementById("times");
+var row=table.insertRow(count);
+count=-(1-count)+2
+var row2=table.rows[count-1]
+
+ var cell0=row2.insertCell(0);
+var att4=document.createAttribute("data-css");
+ att4.value="first"
+table.rows[count-1].cells[0].setAttributeNode(att4); 
+ var cell1=row2.insertCell(1);
+  cell1.innerHTML=""
+ cell1.width="150px"
+
+var att=document.createAttribute("class");
+ att.value="tr-"+count+ " spacer"
+table.rows[count-1].setAttributeNode(att); 
+var att6=document.createAttribute("data-css");
+ att6.value="second"
+table.rows[count-1].cells[1].setAttributeNode(att6); 
+try{document.getElementById("statcount").innerHTML=count}catch (err){document.getElementById("statcount").innerHTML=""}
+
+document.getElementById("times").setAttribute("data-count", count)
+spaced="true";
+}
+}
+else
+{
+
+spaced="false";
+var table=document.getElementById("times");
+var row=table.insertRow(count);
+count=-(1-count)+2
+
+
+
+var row2=table.rows[count-1]
+
+ var cell0=row2.insertCell(0);
+ cell0.width="20px"
+var att4=document.createAttribute("data-css");
+ att4.value="first"
+table.rows[count-1].cells[0].setAttributeNode(att4); 
+
+ var cell1=row2.insertCell(1);
+g=escape(g)
+g=g.replace(/%3C/g, "&lt;")
+g=g.replace(/%5C%3E%3E/g, "&raquo;")
+g=g.replace(/%3E/g, "&gt;")
+g=g.replace(/%5Cn/g, "<br>")
+
+g=unescape(g)
+ cell1.innerHTML=g
+ cell1.width="150px"
+var att=document.createAttribute("class");
+ att.value="tr-"+count+ " "+c
+table.rows[count-1].setAttributeNode(att); 
+
+var att6=document.createAttribute("data-css");
+ att6.value="second"
+table.rows[count-1].cells[1].setAttributeNode(att6); 
+
+try{document.getElementById("statcount").innerHTML=count}catch (err){document.getElementById("statcount").innerHTML=""}
+
+document.getElementById("times").setAttribute("data-count", count)
+
+
+}
+setTimeout(function(){colorupdate()})
+}
+</script>
+<script>
+var ptstcount
+
+function statadd()
+{
+if (typeof ptstcount == "undefined"){ptstcount= 0}
+k=document.getElementById("times").rows.length
+if (ptstcount > k-1){alert("Add another station")}
+else
+{
+ptstcount=-(1-ptstcount)+2 
+}
+}
+function statminus()
+
+{
+if (typeof ptstcount == "undefined"){ptstcount= 0}
+if (ptstcount <= 1){ptstcount= 0;}
+else
+{
+ptstcount=-(1-ptstcount)
+}
+
+}
+</script>
+<script>
+function editstat()
+{
+newvalue=document.getElementById("stat-edit").value
+row=document.getElementById("editor").value
+
+document.getElementById("times").rows[row].cells[1].innerHTML=newvalue
+}
+function updatestat()
+{
+select_edit="<select class=\"curved\" id=\"editor\" style=\"width:150px;\">"
+select_edit+="<option value=\"none\">---<\/option>"
+k=document.getElementById("times").rows.length || 0
+
+for (var j = 0; j < k; j++) {
+try
+{
+stjkl= document.getElementById("times").rows[j].cells[1].innerHTML
+}
+catch (err){continue}
+k9 = -(1-j)+2
+
+select_edit+="<option value="+j+" selected>"+k9+". "+stjkl+"<\/option>"
+
+
+
+}
+select_edit+="<\/select>"
+document.getElementById("edit-tp").innerHTML=select_edit
+
+
+if (typeof ptstcount == "undefined"){ptstcount= 0}
+
+
+select_pattern="Number of stops: "+ ptstcount +"<br>"
+if (ptstcount>0){select_pattern+="<hr>"}
+for (var m = 1; m < ptstcount+1;m++)
+{
+select_pattern+="&nbsp"
+pid="pattern-select-"+ m || "pattern-select-1"
+try
+{
+slxi=document.getElementById(pid).value
+slxi=-(1-slxi)+1
+}
+catch (err){slxi=0}
+
+idx="min-"+pid
+if (m==1)
+{}
+else
+{
+try
+{
+txvalue=document.getElementById(idx).value
+}
+catch (err)
+{
+txvalue=""
+}
+}
+select_pattern+="("+m+") <select id=\""+pid+"\" style=\"width:100px;\">"
+
+
+select_pattern+="<option value=0>---<\/option>"
+k=document.getElementById("times").rows.length || 1
+
+for (var j = 0; j < k; j++) {
+l=-(1-j)+2
+
+stj = document.getElementById("times").rows[j].cells[1].innerHTML
+if (stj==""){
+select_pattern+="<option value="+l+" disabled>---<\/option>"}
+else
+{
+if (slxi == j+1)
+{
+select_pattern+="<option value="+l+" selected>"+stj+"<\/option>"
+}
+else
+{
+select_pattern+="<option value="+l+">"+stj+"<\/option>"
+}
+}
+}
+select_pattern+="<\/select>"
+if (m==1){select_pattern+=" <input id=\""+idx+"\" maxlength=\"2\" style=\"width:22px;\" value=\"0\" disabled> min,"} 
+else { select_pattern+=" <input id=\""+idx+"\" maxlength=\"2\" style=\"width:22px;\" value=\""+txvalue+"\"> min,"}
+if (m % 6 == 0){select_pattern+="<br><hr>"}
+}
+document.getElementById("pattern1").innerHTML=select_pattern
+
+}
+
+var ptcount
+function savestops()
+{
+if (typeof ptcount == "undefined"){ptcount= 0;setTimeout(function(){updatestat})}
+	patternname=document.getElementById("stoppatternname").value
+//alert(ptstcount)
+stopval2=0;
+if (ptstcount<2 || patternname=="")
+{
+if (patternname=="")
+{
+
+}
+else
+{
+}
+}
+
+
+else
+{
+stopstring=""
+stopstring2=""
+
+
+lastvalue=0
+skip="False"
+for (var q=1; q<ptstcount+1; q++)
+{	
+idneed="pattern-select-"+q
+stopval=document.getElementById(idneed).value
+try
+{
+idneed2="min-pattern-select-"+q
+stopval3=-(1-document.getElementById(idneed2).value)+1 || 0
+if (stopval3<0){stopval3=-stopval3}
+stopval2=stopval2+Math.round(stopval3)
+
+}
+catch (err){}
+
+// alert(stopval)
+if (stopval==0){}
+else
+{
+// alert("Prev: "+lastvalue+" // Current: "+stopval)
+lastvalue=-(1-lastvalue)+1
+stopval=-(1-stopval)+1
+
+if (lastvalue<stopval && lastvalue != stopval)
+{
+lastvalue=stopval;
+// alert("Added: " + lastvalue)
+stopstring+=stopval+", "
+if (q==1){stopstring2+="0, "}
+else
+{
+stopstring2+=stopval2+", "
+}
+}
+else
+{
+skip="True"
+}
+
+}
+
+
+}
+
+
+
+if (skip=="False")
+{
+var x=document.getElementById("savedpatterns").innerHTML
+ptcount=ptcount+1 || 1
+pt="sv-"+ptcount
+ptx="svn-"+ptcount
+
+ptn="svpattern-"+ptcount
+ptn2="min-svpattern-"+ptcount
+document.getElementById("savedpatterns").innerHTML=x+"<span id=\""+pt+"\"><br><span id=\""+ptx+"\">"+ ptcount+ ". " + patternname+"<\/span>: <input id=\""+ptn+"\" disabled value=\""+stopstring+"\"\/> <input id=\""+ptn2+"\" disabled value=\""+stopstring2+"\"\/><input type=\"submit\" onClick=\"deletestops(this.parentElement.id)\" value=\"X\"><\/span>"
+document.getElementById("patterncount").innerHTML="Number of stopping patterns: "+ptcount;
+setTimeout(function(){updateservselect()})
+}
+else
+{
+alert("Pattern not saved. Duplicate or non-linear stopping pattern")
+}
+}
+
+
+
+}
+
+function updateservselect()
+{
+
+select_patternx=""
+select_patternx+="<select class=\"curved\" style=\"width:150px;\" id=\"addservicex\"><option value=0 selected>---</option>"
+
+for (var f=1; f<ptcount+1; f++)
+{
+ptff="svn-"+f;
+try
+{
+ptxff=document.getElementById(ptff).innerHTML
+}
+catch (err){}
+select_patternx+="<option value="+f+">"+ptxff+"<\/option>"
+}
+select_patternx+="<\/select>"
+document.getElementById("selectpatterns").innerHTML=select_patternx;
+}
+
+
+function deletestops(ids)
+{
+y=confirm("Delete stopping pattern " + ids+"?")
+if (y==true)
+{
+
+alert(ids)
+skipx=-(1-ids.split("-")[1])+1
+alert(skipx)
+alert(ptcount)
+// document.getElementById(ids).parentNode.removeChild(document.getElementById(ids)); 
+for (var ia=1;ia<ptcount+1;ia++)
+{
+try
+{
+if (ia < skipx){continue;}
+else
+{
+
+if (ia==skipx){document.getElementById(ids).parentNode.removeChild(document.getElementById(ids))}
+else
+{
+
+ib = -(1-ia);
+alert(ib)
+
+oldid1="svpattern-"+ia
+oldid2="min-svpattern-"+ia
+
+oldid3="sv-"+ia
+
+
+
+newid1="svpattern-"+ib
+newid2="min-svpattern-"+ib
+newid3="sv-"+ib
+
+
+var x1=document.getElementById(oldid1)
+var x2= document.getElementById(oldid2)
+var x3 = document.getElementById(oldid3)
+alert(x3.id)
+
+x1.id=newid1;
+x2.id=newid2;
+x3.id=newid3;
+
+}
+
+
+}
+
+}
+catch(err){}
+
+}
+
+
+
+
+
+
+ptcount=ptcount-1
+document.getElementById("patterncount").innerHTML="Number of stopping patterns: "+ptcount;
+}
+setTimeout(function(){updateservselect()}) 
+
+}
+var hoursx
+var minutesx
+function addservice()
+{
+var gg = document.getElementById("positionx").value
+var columnArray = document.getElementById("servicecount").innerHTML.split("services: ")
+var column=columnArray[1]
+
+
+stx1=document.getElementById("starttime1").value
+stx2=document.getElementById("starttime2").value
+
+stx1=Math.floor(stx1 % 24)
+stx2=Math.floor(stx2 % 60)
+//alert(stx2)
+if(stx2>59) {slx1+=Math.floor(stx2/60);}
+starttime=stx1*60+stx2
+qx=document.getElementById("addservicex").value
+if (qx==0){}
+else
+{
+stopsid="svpattern-"+qx
+stopsx=document.getElementById(stopsid).value
+stops=stopsx.split(", ")
+stoplen=stops.length
+
+intervalsid="min-svpattern-"+qx
+intervalsx=document.getElementById(intervalsid).value
+intervals=intervalsx.split(", ")
+var check
+var rowx
+// var columnx
+var cellx
+var addmin
+var addhour
+var time
+try
+{
+for (c=0;c<count;c++)
+{
+d=-(1-c)+2
+e=d+""
+check=stops.indexOf(e)
+if (check == "-1")
+{
+addtime=""
+addhour=""
+addmin=""
+time=""
+}
+else
+{
+addtime=-(1-intervals[check])+starttime+1
+addhour=Math.floor(addtime/60)
+addhour=addhour % 24
+if (addhour < 10){addhour="0"+addhour} else{addhour=""+addhour}
+addmin=Math.floor(addtime % 60)
+
+
+if (addmin < 10){addmin="0"+addmin} else{addmin=""+addmin}
+time=addhour+":"+addmin
+}
+columnx=-(1-column)+3 
+if (typeof gg != "undefined" && gg > 0){columnx = -(1-gg)+2 }
+
+table=document.getElementById("times")
+rowx=table.rows[c]
+cellx=rowx.insertCell(columnx);
+ cellx.width="60px"
+gx=c+","+columnx
+cellx.innerHTML="<span id=\""+gx+"\">"+time+"</span>"
+}
+column=-(1-column)+2
+document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
+}
+catch (err){alert("Unable to add service")}
+}	
+}
+function deleteservice ()
+{
+a=document.getElementById("deleteservice").value
+
+x="Delete service " + a + "?"
+y=confirm(x)
+if(y==true && a > 0)
+{
+a=-(1-a)+2
+try
+{
+var tables; 
+ tables = document.getElementById("times"); 
+ for (var i = tables.rows.length - 1; i >= 0; i--) {    tables.rows[i].deleteCell(a);  }
+var columnArray = document.getElementById("servicecount").innerHTML.split("services: ")
+var column=columnArray[1]
+column=-(1-column) ;
+document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
+} catch(err){alert("Unable to delete service"+err)}
+ }
+}
+</script>
+<script>
+function hide(idx, ax)
+{
+ax.id="a-"+idx;
+hx=document.getElementById(ax.id).text
+try
+{
+var hidden = document.getElementById(idx).style.display
+if (hidden == "none" && idx=="selector"){hiddenx = "block"; hx=hx.replace("// Generated by Timetable Maker", "Print Preview")}
+
+if (hidden == "none" && idx!="selector"){hiddenx = "block"; hx=hx.replace("Show", "Hide")}
+else
+{
+if (hidden == "none" && idx=="selector"){hiddenx = "block"; hx=hx.replace("// Generated by Timetable Maker", "Print Preview")}
+else
+{
+hiddenx = "none"
+
+if (idx=="selector"){hx=hx.replace("Print Preview", "// Generated by Timetable Maker");alert('Press Control+P on Chrome to print to PDF etc or Control+S to save')}
+else
+{hx=hx.replace("Hide", "Show")}
+}}
+document.getElementById(idx).style.display=hiddenx;
+document.getElementById(ax.id).text=hx;
+//ax.innerHTML=hx;
+
+}
+catch(err){}
+try
+{
+setTimeout(function(){colorupdate()})
+}
+catch (err){}
+}
+</script>
+<script>
+function getStyles()
+{
+var all = document.getElementsByTagName("*");
+
+for (var i=0, max=all.length; i < max; i++) {
+  
+
+
+   // Do something with the element here
+}
+
+
+}
+
+
+
+</script>
+
+
+<body>
+<!--start options, delete when complete-->
+<div id="selector" style="background-color:#F2F2F2;color:#002060;">
+<div>
+
+<h3>Edit Style: <a style="color:#002060;position:relative;top:auto;right:0px;" href="javascript:" onClick="hide('stylesheet',this)">Hide</a></h3>
+
+<div id="stylesheet" style="background-color:#002060;color:white;">
+<span id="change-theme">Change theme font colour:
+<select class="curved" id="themex">
+<option value="navy" selected>Navy (Default)</option>
+<option value="grey">Grey</option>
+<option value="black">Black</option>
+
+</select>
+<br><hr>
+</span>
+<span id="change-linecol">Change colour 1: 
+#<input type="text" id="red" onkeypress="colorupdate()" onblur="colorupdate()" inputsize="2"  maxlength="2" style="width:21px;" value="F7">
+#<input type="text" id="green" onkeypress="colorupdate()" onblur="colorupdate()" inputsize="2" maxlength="2"  style="width:21px;" value="96">
+#<input type="text" id="blue" onkeypress="colorupdate()" onblur="colorupdate()" inputsize="2" maxlength="2"  style="width:21px;" value="46">
+<input type="text" id="color-preview" disabled="disabled" style="width:64px;" value="#F79646"></span>
+
+<span id="change-linecol2">Change colour 2: 
+#<input type="text" id="red2" onkeypress="colorupdate()" onblur="colorupdate()" inputsize="2"  maxlength="2" style="width:21px;" value="55">
+#<input type="text" id="green2" onkeypress="colorupdate()" onblur="colorupdate()" inputsize="2" maxlength="2"  style="width:21px;" value="55">
+#<input type="text" id="blue2" onkeypress="colorupdate()" onblur="colorupdate()" inputsize="2" maxlength="2"  style="width:21px;" value="55">
+<input type="text" id="color-preview2" disabled="disabled" style="width:64px;" value="#555555"></span>
+
+
+<span id="change-fill">Change fill colour: 
+<select class="curved" id="fill-colour">
+<option value="colour1" selected>Colour 1 (default)</option>
+<option value="colour2">Colour 2</option>
+<option value="white">No Fill</option>
+
+</select></span>
+<span id="change-fill">Change title colour: 
+<select class="curved" id="title-colour">
+<option value="default" selected>Adjusted (default)</option>
+<option value="lower999">Darker 50%</option>
+<option value="lower777">Darker 40%</option>
+<option value="lower555">Darker 30%</option>
+<option value="lower333">Darker 20%</option>
+<option value="norm">Normal (Same as Fill)</option>
+<option value="higher333">Lighter 20%</option>
+<option value="higher555">Lighter 30%</option>
+<option value="lowergradient">Dark Shift</option>
+<option value="centralgradient">Default Shift</option>
+<option value="highergradient">Lighter Shift</option>
+<option value="colour1">Colour 1</option>
+<option value="colour2">Colour 2</option>
+<option value="none">No Fill</option>
+</select></span>
+
+
+
+
+
+<br><hr>
+<span id="change-radius">Change curvature setting:
+
+
+
+<select class="curved" id="radi">
+<option value="0">0</option>
+<option value="5">1</option>
+<option value="10" selected>2 (default)</option>
+<option value="15">3</option>
+<option value="20">4</option>
+<option value="25">5</option>
+
+</select></span>
+<hr><input type="submit" value="Update Style Sheet" onClick="colorupdate()"><small> (updates automatically)</small>
+</div>
+
+
+</div>
+<h3>Edit Line Name: <a style="color:#002060;position:relative;top:auto;right:0px;" href="javascript:" onClick="hide('line',this)">Hide</a></h3>
+
+
+<div id="line" style="background-color:#002060;color:white;">
+<span id="change-line">Change line marker: 
+<select class="curved" id="line-letter">
+<option>none</option>
+<option value="">---</option>
+<option value="A">A</option>
+<option value="B">B</option>
+<option value="C">C</option>
+<option value="D">D</option>
+<option value="E">E</option>
+<option value="F">F</option>
+<option value="L">L</option>
+<option value="M">M</option>
+<option value="N">N</option>
+<option value="R">R</option>
+<option value="S">S</option>
+<option value="T">T</option>
+<option value="X">X</option>
+</select>
+Enter no: <input id="line-number" minlength="2" maxlength="4" style="width:40px;">
+<input type="text" id="input-line"></input>
+<input type="submit" onClick="changeheading();" value="Change"><small>
+SYMBOLS: \n = line break (only available without line number); \>> = double arrow right; </small>
+</div>
+
+
+<h3>Edit Timing Points: <a style="color:#002060;position:relative;top:auto;right:0px;" href="javascript:" onClick="hide('addstations',this)">Hide</a></h3>
+
+
+<div id="addstations" style="background-color:#002060;color:white;">
+<span id="change-station">Add timing point: <input style="width:150px;" type="text" id="input-station">
+<select class="curved" id="type">
+<option value="st">Normal</option>
+<option value="minor-interchange">Minor Interchange</option>
+<option value="major-interchange">Major Interchange</option>
+<option value="absolute">Central Interchange</option>
+<option value="connection" disabled>Connection</option>
+<option value="spacer">Spacer</option>
+</select>
+<input type="submit" onClick="addstat();updatestat()" value="Append">
+<span>Edit Timing Point: </span>
+<span id="edit-tp">
+<select style="width:150px;" class="curved" id="editor"><option value=0>---</option></select></span>
+<span id="edit-box"><input style="width:150px;" type="text" id="stat-edit"></span> <input value="Save Edit" type="submit" onClick="editstat();updatestat();colorupdate()">
+<input type="submit" onClick="removestat2();updatestat()" value="Delete">
+<input type="submit" onClick="removestat();updatestat()" value="Delete Last"><span> Timing Points: </span><span id="statcount">0</span>
+<br>
+<hr>
+
+</div>
+
+
+
+
+
+<h3>Edit Stopping Patterns: <a style="color:#002060;position:relative;top:auto;right:0px;" href="javascript:" onClick="hide('addpatterns',this)">Hide</a></h3>
+
+
+<div id="addpatterns" style="background-color:#002060;color:white;">
+<input type="submit" onClick="updatestat()" value="Update">
+<input type="submit" onClick="statadd();updatestat()" value="+"> 
+<input type="submit" onClick="statminus();updatestat()" value="-"> 
+<input type="text" id="stoppatternname">
+<input type="submit" onClick="savestops();updatestat()" value="Save Stopping Pattern"> 
+
+<span id="pattern1">Number of stops: 0</span>
+
+
+
+</div>
+
+<h3>Saved Stopping Patterns: <a style="color:#002060;position:relative;top:auto;right:0px;" href="javascript:" onClick="hide('editpatterns',this)">Hide</a></h3>
+<div id="editpatterns" style="background-color:#002060;color:white;">
+<span id="patterncount">Number of stopping patterns: 0</span>
+<span id="savedpatterns">
+</span>
+
+
+</div>
+<h3>Edit Services: <a style="color:#002060;position:relative;top:auto;right:0px;" href="javascript:" onClick="hide('addservice',this)">Hide</a></h3>
+
+<div id="addservice" style="background-color:#002060;color:white;">
+<span>Select stopping pattern:</span> <span id="selectpatterns"><select class="curved" style="width:150px;" id="addservicex"><option value=0 selected>---</option></select></span>
+<span>Start Time:</span> <input style="width:22px;" type="text" id="starttime1" maxlength="2" value="04">:<input style="width:22px;" type="text" id="starttime2" maxlength="2" value="00">
+<input type="submit" onClick="addservice()" value="Add"><span> at position </span><input style="width:22px;" type="text" id="positionx" maxlength="3" value=""> <span>(leave blank for end)</span><hr>
+<span>Delete Pattern: </span>
+<input style="width:22px;" type="text" id="deleteservice" maxlength="3" value=""> <input type="submit" onClick="deleteservice()" value="Delete">
+<span id="servicecount">Number of services: 0</span>
+</span>
+</div>
+<hr>
+<small>Refreshing the page will cause you to lose data</small>
+</div>
+<br>
+
+
+<!--end options-->
+<span id="x2"><a style="color:#002060;position:relative;top:auto;right:0px;" href="javascript:" onClick="hide('selector',this);">Print Preview</a></span>
+
+<div id="table-1">
+<h1 id="output-line"><span id="ln" style="display:none;"></span><span id="lm" style="display:none;"></span>Timetable Maker</h1>
+ <table border="0.5" data-count='0' id="times" class="navy"></table></div>
