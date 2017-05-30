@@ -1169,6 +1169,10 @@ cellx=rowx.insertCell(columnx);
 gx=c+","+columnx
 cellx.innerHTML="<span id=\""+gx+"\">"+time+"</span>"
 }
+}
+catch (err){alert("Unable to add service")}
+try
+{
 column=-(1-column)+2
 addtime=-(1-intervals[check])+starttime+1
 addhour=Math.floor(addtime/60)
@@ -1177,7 +1181,6 @@ if (addhour < 10){addhour="0"+addhour} else{addhour=""+addhour}
 addmin=Math.floor(addtime % 60)
 if (addmin < 10){addmin="0"+addmin} else{addmin=""+addmin}
 time=addhour+":"+addmin
-}
 document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
 var terminus=document.getElementById("editor").options[stops[0]].text
 var x = document.getElementById("viewservicex");
@@ -1186,9 +1189,8 @@ option.text = columnx+". "+time+"service from " + terminus+" ("+service.type.spl
 option.value = "NE"
 x.add(option, columnx);
 sortSelect(x)
+catch (err){alert("Unexpected Error: "+err)}
 
-}
-catch (err){alert(err+"Unable to add service")}
 }	
 }
 function sortSelect(selElem) {
