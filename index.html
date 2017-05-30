@@ -1118,8 +1118,6 @@ else
 {
 stopsid="svpattern-"+qx
 stopsx=document.getElementById(stopsid).value
-servicetag="svn-"+qx
-servicetype=document.getElementById(servicetag).value
 stops=stopsx.split(", ")
 stoplen=stops.length
 
@@ -1186,6 +1184,8 @@ time=addhour+":"+addmin
 var terminus=document.getElementById("editor").options[stops[0]].text
 var x = document.getElementById("viewservicex");
 var option = document.createElement("option");
+var servicetype=document.getElementById("addservicex").options[qx].text
+
 option.text = columnx+". "+time+"service from " + terminus+" ("+servicetype.split(". ")[1]+")";
 option.value = "NE"
 x.add(option, columnx);
