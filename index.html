@@ -1187,8 +1187,8 @@ var x = document.getElementById("viewservicex");
 var option = document.createElement("option");
 var servicetype=document.getElementById("addservicex").options[qx].text
 if (typeof gg != "undefined" && gg > 0){} else {gg=column;}
-/*option.text = gg+". "+timex+" service from " + terminus.split(". ")[1]+" ["+servicetype.split(". ")[1]+"]";*/
-option.text = gg+". "+timex+" "+servicetype.split(". ")[1]+" service from " + terminus.split(". ")[1]+" "+stoppingpattern
+option.text = "Service #"+gg
+option.value = "Service #"+gg+": "+timex+" "+servicetype.split(". ")[1]+" service from " + terminus.split(". ")[1]+" "+stoppingpattern
 x.add(option, columnx);
 sortSelect(x)
 }
@@ -1212,6 +1212,12 @@ function sortSelect(selElem) {
         selElem.options[i] = op;
     }
     return;
+}
+function viewservice ()
+{
+var e = document.getElementById("viewservicex");
+var strUser = e.options[e.selectedIndex].value;
+document.getElementById("servicedetails").value=strUser
 }
 function deleteservice ()
 {
@@ -1456,7 +1462,7 @@ SYMBOLS: \n = line break (only available without line number); \>> = double arro
 <span>Start Time:</span> <input style="width:22px;" type="text" id="starttime1" maxlength="2" value="04">:<input style="width:22px;" type="text" id="starttime2" maxlength="2" value="00">
 <input type="submit" onClick="addservice()" value="Add"><span> at position </span><input style="width:22px;" type="text" id="positionx" maxlength="3" value=""> <span>(leave blank for end)</span><hr>
 <span>View Services:</span> 
-<span id="viewservices"><select class="curved" style="width:150px;" id="viewservicex"><option value=0 selected>---</option></select></span> <input type="submit" onClick="viewservice()" value="View Service"> <input style="width:142px;" type="text" id="servicedetails" disabled="disabled" value=""><hr>
+<span id="viewservices"><select class="curved" style="width:45px;" id="viewservicex" onchange="viewservice()"><option value="No Service Selected" selected>---</option></select></span> <input type="submit" onClick="viewservice()" value="View Service"> <style="width:942px;" type="text" id="servicedetails" disabled="disabled" value=""><hr>
 <span>Delete Services: </span>
 <input style="width:22px;" type="text" id="deleteservice" maxlength="3" value=""> <input type="submit" onClick="deleteservice()" value="Delete">
 <span>Number of Servics: <span id="servicecount">0</span></span>
