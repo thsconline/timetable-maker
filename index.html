@@ -1120,7 +1120,7 @@ stops=stopsx.split(", ")
 stoppingpattern ="stopping at "
 stoplen=stops.length
 terminus=document.getElementById("editor").options[stops[0]].text
-lno=stops[stoplen-1]
+lno=stops[stops.length-1]+""
 nextstop=""
 
 
@@ -1151,7 +1151,7 @@ time=" "
 else
 {
 nextstop=document.getElementById("editor").options[stops[c]].text
-if (c==lno-1){stoppingpattern+="& "+ nextstop.split(". ")[1]}
+if (e==lno){stoppingpattern+="& "+ nextstop.split(". ")[1]}
 else {stoppingpattern+=nextstop.split(". ")[1]+", "}
 
 addtime=-(1-intervals[check])+starttime+1
