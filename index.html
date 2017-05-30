@@ -1100,8 +1100,8 @@ var minutesx
 function addservice()
 {
 var gg = document.getElementById("positionx").value
-var columnArray = document.getElementById("servicecount").innerHTML.split("services: ")
-var column=columnArray[1]
+var column = document.getElementById("servicecount").innerHTML
+
 
 
 stx1=document.getElementById("starttime1").value
@@ -1166,7 +1166,6 @@ cellx=rowx.insertCell(columnx);
  cellx.width="60px"
 gx=c+","+columnx
 cellx.innerHTML="<span id=\""+gx+"\">"+time+"</span>"
-document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
 }
 
 }
@@ -1174,7 +1173,7 @@ catch (err){alert("Unable to add service")}
 try
 {
 column=-(1-column)+2
-
+document.getElementById("servicecount").innerHTML = column
 addhourx=Math.floor(starttime/60)
 addhourx=addhourx % 24
 if (addhourx < 10){addhourx="0"+addhourx} else{addhourx=""+addhourx}
@@ -1227,10 +1226,9 @@ try
 var tables; 
  tables = document.getElementById("times"); 
  for (var i = tables.rows.length - 1; i >= 0; i--) {    tables.rows[i].deleteCell(a);  }
-var columnArray = document.getElementById("servicecount").innerHTML.split("services: ")
-var column=columnArray[1]
+var column = document.getElementById("servicecount")
 column=-(1-column) ;
-document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
+document.getElementById("servicecount").innerHTML = column
 } catch(err){alert("Unable to delete service"+err)}
  }
 }
@@ -1460,7 +1458,7 @@ SYMBOLS: \n = line break (only available without line number); \>> = double arro
 <span id="viewservices"><select class="curved" style="width:150px;" id="viewservicex"><option value=0 selected>---</option></select></span><hr>
 <span>Delete Services: </span>
 <input style="width:22px;" type="text" id="deleteservice" maxlength="3" value=""> <input type="submit" onClick="deleteservice()" value="Delete">
-<span id="servicecount">Number of services: 0</span>
+<span>Number of Servics: <span id="servicecount">0</span></span>
 </span>
 </div>
 <hr>
