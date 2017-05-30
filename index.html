@@ -1169,6 +1169,7 @@ cellx=rowx.insertCell(columnx);
 gx=c+","+columnx
 cellx.innerHTML="<span id=\""+gx+"\">"+time+"</span>"
 }
+document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
 }
 catch (err){alert("Unable to add service")}
 try
@@ -1181,11 +1182,11 @@ if (addhour < 10){addhour="0"+addhour} else{addhour=""+addhour}
 addmin=Math.floor(addtime % 60)
 if (addmin < 10){addmin="0"+addmin} else{addmin=""+addmin}
 time=addhour+":"+addmin
-document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
+
 var terminus=document.getElementById("editor").options[stops[0]].text
 var x = document.getElementById("viewservicex");
 var option = document.createElement("option");
-option.text = columnx+". "+time+"service from " + terminus+" ("+service.type.split(". ")[1]+")";
+option.text = columnx+". "+time+"service from " + terminus+" ("+servicetype.split(". ")[1]+")";
 option.value = "NE"
 x.add(option, columnx);
 sortSelect(x)
