@@ -1174,9 +1174,9 @@ document.getElementById("servicecount").innerHTML = columnArray[0] + "services: 
 var terminus=document.getElementById("editor").options[stops[0]].text
 var x = document.getElementById("viewservicex");
 var option = document.createElement("option");
-option.text = columnx+". "+starttime" from " + terminus+" ("+service.type.split(". ")[1]+")";
+option.text = columnx+". "+starttime+"service from " + terminus+" ("+service.type.split(". ")[1]+")";
 option.value = "NE"
-x.add(option);
+x.add(option, columnx);
 sortSelect(x)
 
 }
