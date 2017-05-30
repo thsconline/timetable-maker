@@ -1167,13 +1167,12 @@ cellx=rowx.insertCell(columnx);
 gx=c+","+columnx
 cellx.innerHTML="<span id=\""+gx+"\">"+time+"</span>"
 }
-
+column=-(1-column)+2
+document.getElementById("servicecount").innerHTML = column
 }
 catch (err){alert("Unable to add service")}
 try
 {
-column=-(1-column)+2
-document.getElementById("servicecount").innerHTML = column
 addhourx=Math.floor(starttime/60)
 addhourx=addhourx % 24
 if (addhourx < 10){addhourx="0"+addhourx} else{addhourx=""+addhourx}
