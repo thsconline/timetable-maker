@@ -1157,7 +1157,7 @@ addmin=Math.floor(addtime % 60)
 if (addmin < 10){addmin="0"+addmin} else{addmin=""+addmin}
 time=addhour+":"+addmin
 }
-columnx=-(1-column)+3 
+columnx=-(1-column)+3
 if (typeof gg != "undefined" && gg > 0){columnx = -(1-gg)+2 }
 
 table=document.getElementById("times")
@@ -1166,8 +1166,9 @@ cellx=rowx.insertCell(columnx);
  cellx.width="60px"
 gx=c+","+columnx
 cellx.innerHTML="<span id=\""+gx+"\">"+time+"</span>"
-}
 document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
+}
+
 }
 catch (err){alert("Unable to add service")}
 try
