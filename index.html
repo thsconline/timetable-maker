@@ -1167,7 +1167,6 @@ cellx=rowx.insertCell(columnx);
 gx=c+","+columnx
 cellx.innerHTML="<span id=\""+gx+"\">"+time+"</span>"
 }
-document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
 }
 catch (err){alert("Unable to add service")}
 try
@@ -1185,14 +1184,14 @@ var terminus=document.getElementById("editor").options[stops[0]].text
 var x = document.getElementById("viewservicex");
 var option = document.createElement("option");
 var servicetype=document.getElementById("addservicex").options[qx].text
-option.text = columnx+". "+timex+" service from " + terminus.split(". ")[0]+" ("+servicetype.split(". ")[1]+")";
+option.text = (columnx-1)+". "+timex+" service from " + terminus.split(". ")[0]+" ("+servicetype.split(". ")[1]+")";
 option.value = "NE"
 x.add(option, columnx);
 sortSelect(x)
 }
 catch (err){alert("Unexpected Error: "+err)}
-
-}	
+}
+document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
 }
 function sortSelect(selElem) {
     var tmpAry = new Array();
