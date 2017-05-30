@@ -1236,7 +1236,8 @@ var tables;
  for (var i = tables.rows.length - 1; i >= 0; i--) {    tables.rows[i].deleteCell(a);  }
 var column = document.getElementById("servicecount")
 column=-(1-column) ;
-document.getElementById("servicecount").innerHTML = column
+columnty=column+"" || 0
+document.getElementById("servicecount").innerHTML = columnty
 } catch(err){alert("Unable to delete service"+err)}
  }
 }
