@@ -1234,10 +1234,11 @@ try
 var tables; 
  tables = document.getElementById("times"); 
  for (var i = tables.rows.length - 1; i >= 0; i--) {    tables.rows[i].deleteCell(a);  }
-var column = document.getElementById("servicecount")
+var column = document.getElementById("servicecount").innerHTML
 column=-(1-column) ;
-columnty=column+"" || 0
-document.getElementById("servicecount").innerHTML = columnty
+document.getElementById("servicecount").innerHTML = column
+ag=document.getElementById("servicecount").innerHTML
+if (ag="NaN"){document.getElementById("servicecount").innerHTML=0}
 } catch(err){alert("Unable to delete service"+err)}
  }
 }
