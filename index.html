@@ -1118,6 +1118,8 @@ else
 {
 stopsid="svpattern-"+qx
 stopsx=document.getElementById(stopsid).value
+servicetag="svn-"+qx
+servicetype=document.getElementById(servicetag).value
 stops=stopsx.split(", ")
 stoplen=stops.length
 
@@ -1169,9 +1171,34 @@ cellx.innerHTML="<span id=\""+gx+"\">"+time+"</span>"
 }
 column=-(1-column)+2
 document.getElementById("servicecount").innerHTML = columnArray[0] + "services: "+column
+var terminus=document.getElementById("editor").options[stops[0]].text
+var x = document.getElementById("viewservicex");
+var option = document.createElement("option");
+option.text = columnx+". "+starttime" from " + terminus+" ("+service.type.split(". ")[1]+")";
+option.value = "NE"
+x.add(option);
+sortSelect(x)
+
 }
 catch (err){alert("Unable to add service")}
 }	
+}
+function sortSelect(selElem) {
+    var tmpAry = new Array();
+    for (var i=0;i<selElem.options.length;i++) {
+        tmpAry[i] = new Array();
+        tmpAry[i][0] = selElem.options[i].text;
+        tmpAry[i][1] = selElem.options[i].value;
+    }
+    tmpAry.sort();
+    while (selElem.options.length > 0) {
+        selElem.options[0] = null;
+    }
+    for (var i=0;i<tmpAry.length;i++) {
+        var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+        selElem.options[i] = op;
+    }
+    return;
 }
 function deleteservice ()
 {
@@ -1416,7 +1443,9 @@ SYMBOLS: \n = line break (only available without line number); \>> = double arro
 <span>Select stopping pattern:</span> <span id="selectpatterns"><select class="curved" style="width:150px;" id="addservicex"><option value=0 selected>---</option></select></span>
 <span>Start Time:</span> <input style="width:22px;" type="text" id="starttime1" maxlength="2" value="04">:<input style="width:22px;" type="text" id="starttime2" maxlength="2" value="00">
 <input type="submit" onClick="addservice()" value="Add"><span> at position </span><input style="width:22px;" type="text" id="positionx" maxlength="3" value=""> <span>(leave blank for end)</span><hr>
-<span>Delete Pattern: </span>
+<span>View Services:</span> 
+<span id="viewservices"><select class="curved" style="width:150px;" id="viewservicex"><option value=0 selected>---</option></select></span><hr>
+<span>Delete Services: </span>
 <input style="width:22px;" type="text" id="deleteservice" maxlength="3" value=""> <input type="submit" onClick="deleteservice()" value="Delete">
 <span id="servicecount">Number of services: 0</span>
 </span>
