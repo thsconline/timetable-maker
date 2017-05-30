@@ -1119,6 +1119,8 @@ stopsx=document.getElementById(stopsid).value
 stops=stopsx.split(", ")
 stoppingpattern ="stopping at "
 stoplen=stops.length
+terminus=document.getElementById("editor").options[stops[0]].text
+lno=stops[stoplen-1]
 nextstop=""
 
 
@@ -1149,7 +1151,7 @@ time=" "
 else
 {
 nextstop=document.getElementById("editor").options[stops[c]].text
-if (c==count-1){stoppingpattern+="& "+ nextstop.split(". ")[1]}
+if (c==lno-1){stoppingpattern+="& "+ nextstop.split(". ")[1]}
 else {stoppingpattern+=nextstop.split(". ")[1]+", "}
 
 addtime=-(1-intervals[check])+starttime+1
@@ -1183,7 +1185,7 @@ addminx=Math.floor(starttime % 60)
 if (addminx < 10){addminx="0"+addminx} else{addminx=""+addminx}
 timex=addhourx+":"+addminx
 
-var terminus=document.getElementById("editor").options[stops[0]].text
+
 var x = document.getElementById("viewservicex");
 var option = document.createElement("option");
 var servicetype=document.getElementById("addservicex").options[qx].text
@@ -1238,7 +1240,7 @@ var column = document.getElementById("servicecount").innerHTML
 column=-(1-column) ;
 document.getElementById("servicecount").innerHTML = column
 ag=document.getElementById("servicecount").innerHTML
-if (ag="NaN"){document.getElementById("servicecount").innerHTML=0}
+if (ag=="NaN"){document.getElementById("servicecount").innerHTML=0}
 } catch(err){alert("Unable to delete service"+err)}
  }
 }
@@ -1468,7 +1470,7 @@ SYMBOLS: \n = line break (only available without line number); \>> = double arro
 <span id="viewservices"><select class="curved" style="width:45px;" id="viewservicex" onchange="viewservice()"><option value="No Service Selected" selected>---</option></select></span> <input type="submit" onClick="viewservice()" value="View Service"> <input style="width:942px;" type="text" id="servicedetails" disabled="disabled" value="No Service Selected"><hr>
 <span>Delete Services: </span>
 <input style="width:22px;" type="text" id="deleteservice" maxlength="3" value=""> <input type="submit" onClick="deleteservice()" value="Delete">
-<span>Number of Servics: <span id="servicecount">0</span></span>
+<span>Number of Services: <span id="servicecount">0</span></span>
 </span>
 </div>
 <hr>
