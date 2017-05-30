@@ -1151,6 +1151,7 @@ time=" "
 else
 {
 nextstop=document.getElementById("editor").options[stops[c]].text
+alert(e+" vs. "+lno)
 if (e==lno){stoppingpattern+="& "+ nextstop.split(". ")[1]}
 else {stoppingpattern+=nextstop.split(". ")[1]+", "}
 
