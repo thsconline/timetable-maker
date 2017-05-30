@@ -1148,7 +1148,12 @@ time=""
 }
 else
 {
-stoppingpattern+=document.getElementById("editor").options[stops[c]].text
+nextstop=document.getElementById("editor").options[stops[c]].text
+if (c=count-1){stoppingpattern+="&amp; "+ nextstop.split(". ")[1]}
+else
+{
+stoppingpattern+=nextstop.split(". ")[1]+", "
+}
 addtime=-(1-intervals[check])+starttime+1
 addhour=Math.floor(addtime/60)
 addhour=addhour % 24
